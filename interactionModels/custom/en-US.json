@@ -1,0 +1,91 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "poke agenda",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "TrainWhichPokemonNumber",
+          "slots": [],
+          "samples": [
+            "pokemon memory",
+            "test me",
+            "train me",
+            "test my pokemon memory"
+          ]
+        },
+        {
+          "name": "WhichPokemonNumberAnswer",
+          "slots": [
+            {
+              "name": "pokemon",
+              "type": "AMAZON.SearchQuery",
+              "samples": [
+                "{pokemon}"
+              ]
+            }
+          ],
+          "samples": [
+            "{pokemon} has this number",
+            "This is {pokemon}",
+            "It is {pokemon}"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "WhichPokemonNumberAnswer",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "pokemon",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.823000237698.600062616985"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.823000237698.600062616985",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Sorry... I can\u0027t understand which pokemon is. Please, tell me the name"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "4"
+}
